@@ -1,0 +1,18 @@
+.ItemsList {
+  display: flex;
+}
+
+.ItemsList-card {
+  border: 1px solid #444;
+  margin: 0 1rem;
+}
+
+.ItemsList-card a {
+  display: block;
+  padding: 2.4rem;
+}
+
+.ItemsList-card p {
+  margin: 0;
+  font-size: .9rem;;
+}
