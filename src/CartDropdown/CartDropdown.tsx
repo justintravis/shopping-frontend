@@ -9,7 +9,7 @@ interface Props {
 }
 
 const CartDropdown = ({ cart }: Props) => {
-  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
 
   useEffect(() => {
     if (!dropdownVisible && Object.keys(cart).length > 0) {

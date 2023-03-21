@@ -10,9 +10,9 @@ interface CarouselProps {
 }
 
 const ImageCarousel = ({ images, width, height }: CarouselProps) => {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState<number>(0);
 
-  const navigateCarousel = (direction: string) => {
+  const navigateCarousel = (direction: 'next' | 'previous') => {
     if (direction === 'next' && active + 1 < images.length) {
       setActive(active + 1);
     } else if (direction === 'previous' && active > 0) {
