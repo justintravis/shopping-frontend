@@ -10,7 +10,7 @@ interface Props {
 
 const ItemPage = ({ handleAddItemToCart }: Props) => {
   const { id: itemId } = useParams<string>();
-  const item: Item = items.find(i => i.id === Number(itemId));
+  const item: Item = items.find(i => i.id === Number(itemId)) as Item;
   const { id, name, price, qtyAvailable, images } = item;
 
   return (

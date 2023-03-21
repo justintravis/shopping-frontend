@@ -27,7 +27,7 @@ const App = () => {
         } else {
           return cartItem;
         }
-      });
+      }) as CartItem[];
       setUserCart(newCart);
     } else {
       let cartItem: CartItem = {
