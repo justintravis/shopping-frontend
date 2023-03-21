@@ -1,0 +1,27 @@
+.CartDropdown {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.CartDropdown button {
+  appearance: none;
+  background: none;
+}
+
+.CartDropdown ul {
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  width: 12rem;
+  padding: 1rem;
+  list-style: none;
+  border: 1px solid #ccc;
+}
+
+.CartDropdown span {
+  font-size: 0.8rem;
+  display: inline-block;
+  padding: 0 0.2rem;
+}

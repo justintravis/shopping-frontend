@@ -6,5 +6,12 @@ header {
   width: 100%;
   background-color: #fff;
   color: #444;
-  padding: 1rem 10rem;
+  padding: 1rem 0;
+}
+
+header ul {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
 }
