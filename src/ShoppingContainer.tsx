@@ -6,7 +6,6 @@ import items from './store-items.json';
 const ShoppingContainer = ({ storeName, themeColor, locale}: StoreModel) => {
   return (
     <>
-      <h1>Welcome to { storeName }</h1>
       <ItemsList items={ items } />
     </>
   )

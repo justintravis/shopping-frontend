@@ -7,7 +7,7 @@ import items from '../store-items.json';
 const ItemPage = () => {
   const { id: itemId } = useParams<string>();
   const item: Item = items.find(i => i.id === Number(itemId));
-  const { id, name, price, inStock, images } = item;
+  const { id, name, price, qtyAvailable, images } = item;
 
   return (
     <>
@@ -15,7 +15,7 @@ const ItemPage = () => {
         id={ id }
         name={ name }
         price={ price }
-        inStock={ inStock }
+        qtyAvailable={ qtyAvailable }
         images={ images }
       />
     </>

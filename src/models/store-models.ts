@@ -12,7 +12,7 @@ export interface Item {
   id: number;
   name: string;
   price: number;
-  inStock: boolean;
+  qtyAvailable: number;
   images: ItemImage[]
 }
 

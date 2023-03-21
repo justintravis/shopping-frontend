@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout storeName={`Justin's Store`} />}>
           <Route index element={
             <ShoppingContainer storeName={`Justin's Store`} themeColor='#fefefe' locale='en-GB' />
           } />

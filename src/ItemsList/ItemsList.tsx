@@ -10,7 +10,7 @@ const ItemsList = ({ items }: Items) => {
     <>
       <div className='ItemsList'>
         { items.map(i => {
-          const { id, name, price, inStock, images } = i;
+          const { id, name, price, qtyAvailable, images } = i;
           return (
             <div className='ItemsList-card' key={ id }>
               <Link to={`/item/${ id }`}>
@@ -18,7 +18,7 @@ const ItemsList = ({ items }: Items) => {
                   id={ id }
                   name={ name }
                   price={ price }
-                  inStock={ inStock }
+                  qtyAvailable={ qtyAvailable }
                   images={ images }
                 />
               </Link>

@@ -3,10 +3,16 @@ import { Link, Outlet } from 'react-router-dom';
 
 import './Layout.css'
 
-const Layout = () => {
+interface Props {
+  storeName: string;
+}
+
+const Layout = ({ storeName }: Props) => {
   return (
     <>
-      <header><Link to="/">Store</Link></header>
+      <header>
+        <Link to="/">{ storeName }</Link>
+      </header>
       <Outlet />
     </>
   )
