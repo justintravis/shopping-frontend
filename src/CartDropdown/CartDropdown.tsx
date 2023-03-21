@@ -23,7 +23,7 @@ const CartDropdown = ({ cart }: Props) => {
         <li key={ item.id }>
           <span>({ item.quantity })</span>
           <span><strong>{ item.name }</strong></span>
-          <span>{ item.price }</span>
+          <span>${ item.totalPrice }</span>
         </li>
       )
     })
@@ -36,7 +36,7 @@ const CartDropdown = ({ cart }: Props) => {
         <ul>
           { cart.length > 0
           ? renderCartItems()
-          : 'Empty :( Plz buy some stuff!' }
+          : <span>Empty :( Plz buy some stuff!</span> }
         </ul>
       }
     </div>

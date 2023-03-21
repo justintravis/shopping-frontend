@@ -18,9 +18,11 @@ const App = () => {
     if (itemInCart) {
       const newCart = userCart.map(cartItem => {
         if (cartItem.id === item.id) {
+          const newQuantity = cartItem.quantity + 1;
           return {
             ...cartItem,
-            quantity: cartItem.quantity + 1
+            quantity: newQuantity,
+            totalPrice: newQuantity * cartItem.price
           };
         } else {
           return cartItem;
@@ -32,7 +34,8 @@ const App = () => {
         id: item.id,
         name: item.name,
         quantity: 1,
-        price: item.price
+        price: item.price,
+        totalPrice: item.price
       }
 
       setUserCart([

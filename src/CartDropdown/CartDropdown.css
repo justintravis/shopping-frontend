@@ -8,6 +8,11 @@
 .CartDropdown button {
   appearance: none;
   background: none;
+  border: none;
+}
+
+.CartDropdown button:focus {
+  appearance: none;
 }
 
 .CartDropdown ul {
