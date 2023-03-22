@@ -1,12 +1,12 @@
 import React, { useState, useRef, useContext, Suspense, lazy } from 'react'
 import { CartContext } from '../CartContext';
 import { Item, CartItem } from '../models/store-models';
+import AddToCartButton from '../AddToCartButton/AddToCartButton';
 
 import './ItemPDP.css';
 
-interface Props extends Item {
-  handleAddItemToCart: Function;
-  handleRemoveItemFromCart: Function;
+interface Props {
+  item: Item;
 }
 
 const IMAGE_WIDTH = 250;
@@ -20,7 +20,8 @@ const Loader = () => {
   )
 }
 
-const ItemPDP = ({ id, name, price, qtyAvailable, images, handleAddItemToCart }: Props) => {
+const ItemPDP = ({ item }: Props) => {
+  const { id, name, price, qtyAvailable, images } = item;
   const ImageCarousel = lazy(() => import('../ImageCarousel/ImageCarousel.js'));
 
   const cart: CartItem[] = useContext(CartContext); // Use context to display how many items are already in user's cart
@@ -39,7 +40,7 @@ const ItemPDP = ({ id, name, price, qtyAvailable, images, handleAddItemToCart }:
       </Suspense>
       <p>{ price }</p>
       { qtyAvailable > 0
-        ? <button onClick={ () => handleAddItemToCart() }>Add to Cart</button>
+        ? <AddToCartButton item={ item } />
         : 'Join Waitlist'
       }
       <p>{ qtyInCart && qtyInCart > 0 ? `You have ${ qtyInCart } in your cart` : '' }</p>

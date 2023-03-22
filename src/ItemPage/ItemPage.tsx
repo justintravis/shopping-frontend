@@ -4,24 +4,14 @@ import { Item } from '../models/store-models';
 import ItemPDP from '../ItemPDP/ItemPDP';
 import items from '../store-items.json';
 
-interface Props {
-  handleAddItemToCart: Function;
-}
-
-const ItemPage = ({ handleAddItemToCart }: Props) => {
+const ItemPage = () => {
   const { id: itemId } = useParams<string>();
   const item: Item = items.find(i => i.id === Number(itemId)) as Item;
-  const { id, name, price, qtyAvailable, images } = item;
 
   return (
     <>
       <ItemPDP
-        id={ id }
-        name={ name }
-        price={ price }
-        qtyAvailable={ qtyAvailable }
-        images={ images }
-        handleAddItemToCart={ () => handleAddItemToCart(item) }
+        item={ item }
       />
     </>
   )
