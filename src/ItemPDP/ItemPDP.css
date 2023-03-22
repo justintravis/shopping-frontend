@@ -1,0 +1,9 @@
+.PDP-Loader {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc;
+  padding: 1rem;
+  font-size: 0.8rem;
+}

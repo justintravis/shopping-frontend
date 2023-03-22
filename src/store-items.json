@@ -6,10 +6,10 @@
     "qtyAvailable": 10,
     "images": [
       {
-        "url": "//placehold.it/250x250?text=Image 1"
+        "url": "https://placehold.it/250x250?text=Image-01"
       },
       {
-        "url": "//placehold.it/250x250?text=Image 2"
+        "url": "https://placehold.it/250x250?text=Image-02"
       }
     ]
   },
@@ -20,10 +20,10 @@
     "qtyAvailable": 100,
     "images": [
       {
-        "url": "//placehold.it/250x250?text=Image 1"
+        "url": "//placehold.it/250x250?text=Image-01"
       },
       {
-        "url": "//placehold.it/250x250?text=Image 2"
+        "url": "//placehold.it/250x250?text=Image-02"
       }
     ]
   },
@@ -34,10 +34,10 @@
     "qtyAvailable": 0,
     "images": [
       {
-        "url": "//placehold.it/250x250?text=Image 1"
+        "url": "//placehold.it/250x250?text=Image-01"
       },
       {
-        "url": "//placehold.it/250x250?text=Image 2"
+        "url": "//placehold.it/250x250?text=Image-02"
       }
     ]
   },
@@ -48,10 +48,10 @@
     "qtyAvailable": 250,
     "images": [
       {
-        "url": "//placehold.it/250x250?text=Image 1"
+        "url": "//placehold.it/250x250?text=Image-01"
       },
       {
-        "url": "//placehold.it/250x250?text=Image 2"
+        "url": "//placehold.it/250x250?text=Image-02"
       }
     ]
   }
