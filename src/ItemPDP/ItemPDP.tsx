@@ -1,12 +1,22 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext } from 'react'
 import ImageCarousel from '../ImageCarousel/ImageCarousel';
-import { Item } from '../models/store-models';
+import { CartContext } from '../CartContext';
+import { Item, CartItem } from '../models/store-models';
 
 interface Props extends Item {
   handleAddItemToCart: Function;
+  handleRemoveItemFromCart: Function;
 }
 
-const ItemPDP = ({ name, price, qtyAvailable, images, handleAddItemToCart }: Props) => {
+const ItemPDP = ({ id, name, price, qtyAvailable, images, handleAddItemToCart }: Props) => {
+  const cart = useContext(CartContext); // Use context to display how many items are already in user's cart
+
+  const getQtyInCart = () : number | undefined => {
+    return cart.find(i => Number(i.id) === id)?.quantity;
+  }
+
+  const qtyInCart = getQtyInCart();
+
   return (
     <div>
       <h2>{ name }</h2>
@@ -16,6 +26,7 @@ const ItemPDP = ({ name, price, qtyAvailable, images, handleAddItemToCart }: Pro
         ? <button onClick={ () => handleAddItemToCart() }>Add to Cart</button>
         : 'Join Waitlist'
       }
+      <p>{ qtyInCart > 0 ? `You have ${ qtyInCart } in your cart` : '' }</p>
     </div>
   )
 }

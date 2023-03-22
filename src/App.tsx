@@ -1,9 +1,10 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext } from 'react'
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { CartItem, Item } from './models/store-models';
 import Layout from './Layout/Layout';
 import ShoppingContainer from './ShoppingContainer';
 import ItemPage from './ItemPage/ItemPage';
+import  { CartContext } from './CartContext';
 
 import './App.css'
 
@@ -45,10 +46,21 @@ const App = () => {
     }
   }
 
+  const removeItemFromCart = (item: CartItem) => {
+    console.log(item);
+    const newCart = userCart.filter(cartItem => cartItem.id !== item.id);
+
+    setUserCart(newCart);
+  }
+
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Layout storeName={`Justin's Store`} cart={ userCart } />}>
+        <Route path="/" element={
+          <CartContext.Provider value={ userCart }>
+            <Layout storeName={`Justin's Store`} cart={ userCart } handleRemoveItemFromCart={ removeItemFromCart } />
+          </CartContext.Provider>
+        }>
           <Route index element={
             <ShoppingContainer storeName={`Justin's Store`} themeColor='#fefefe' locale='en-GB' />
           } />

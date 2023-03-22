@@ -1,15 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Link, Outlet } from 'react-router-dom';
+import { useLocation  } from 'react-router-dom';
 import { CartItem } from '../models/store-models';
 
 import './CartDropdown.css'
 
 interface Props {
   cart: CartItem[];
+  handleRemoveItemFromCart: Function;
 }
 
-const CartDropdown = ({ cart }: Props) => {
+const CartDropdown = ({ cart, handleRemoveItemFromCart }: Props) => {
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setDropdownVisible(false);
+  }, [location])
 
   useEffect(() => {
     if (!dropdownVisible && Object.keys(cart).length > 0) {
@@ -24,14 +31,22 @@ const CartDropdown = ({ cart }: Props) => {
           <span>({ item.quantity })</span>
           <span><strong>{ item.name }</strong></span>
           <span>${ item.totalPrice }</span>
+          <button className='CartDropdown-removeItem' onClick={ () => handleRemoveItemFromCart(item) }>&times;</button>
         </li>
       )
     })
   }
 
+  const getCartTotalQty = () => {
+    return cart.reduce((acc, curr) => {
+      return acc + curr.quantity;
+    }, 0) as number;
+  }
+
   return (
     <div className='CartDropdown'>
       <button onClick={ () => setDropdownVisible(!dropdownVisible)}>🛒</button>
+      { cart.length > 0 && <span className='CartDropdown-Badge'>{ getCartTotalQty() }</span>}
       { dropdownVisible &&
         <ul>
           { cart.length > 0
