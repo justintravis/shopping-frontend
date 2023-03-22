@@ -1,5 +1,4 @@
 import React, { useState, useRef, useContext, Suspense, lazy } from 'react'
-// import ImageCarousel from '../ImageCarousel/ImageCarousel';
 import { CartContext } from '../CartContext';
 import { Item, CartItem } from '../models/store-models';
 
