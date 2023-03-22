@@ -47,9 +47,7 @@ const App = () => {
   }
 
   const removeItemFromCart = (item: CartItem) => {
-    console.log(item);
     const newCart = userCart.filter(cartItem => cartItem.id !== item.id);
-
     setUserCart(newCart);
   }
 

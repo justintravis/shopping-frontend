@@ -9,7 +9,7 @@ interface Props extends Item {
 }
 
 const ItemPDP = ({ id, name, price, qtyAvailable, images, handleAddItemToCart }: Props) => {
-  const cart = useContext(CartContext); // Use context to display how many items are already in user's cart
+  const cart: CartItem[] = useContext(CartContext); // Use context to display how many items are already in user's cart
 
   const getQtyInCart = () : number | undefined => {
     return cart.find(i => Number(i.id) === id)?.quantity;
@@ -26,7 +26,7 @@ const ItemPDP = ({ id, name, price, qtyAvailable, images, handleAddItemToCart }:
         ? <button onClick={ () => handleAddItemToCart() }>Add to Cart</button>
         : 'Join Waitlist'
       }
-      <p>{ qtyInCart > 0 ? `You have ${ qtyInCart } in your cart` : '' }</p>
+      <p>{ qtyInCart && qtyInCart > 0 ? `You have ${ qtyInCart } in your cart` : '' }</p>
     </div>
   )
 }
