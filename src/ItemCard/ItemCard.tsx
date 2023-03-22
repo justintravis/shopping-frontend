@@ -8,7 +8,6 @@ const ItemCard = ({ name, price, qtyAvailable, images }: Item) => {
       <p>{ name }</p>
       <p>{ price }</p>
       <p>View product info</p>
-      { qtyAvailable === 0 && 'Out of stock'}
     </div>
   )
 }
