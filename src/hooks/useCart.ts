@@ -8,6 +8,7 @@ interface Props {
 }
 
 export function useCart() {
+
   const userCart = useContext(CartContext);
   const setUserCart = useContext(CartActionsContext) as Function;
 
@@ -46,8 +47,13 @@ export function useCart() {
     }
   }
 
+  const removeItemFromCart = (item: CartItem) => {
+    const newCart = userCart.filter(cartItem => cartItem.id !== item.id);
+    setUserCart(newCart);
+  }
+
   return {
     addItemToCart,
-    // removeItemFromCart
+    removeItemFromCart
   }
 }

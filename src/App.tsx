@@ -12,18 +12,13 @@ import './App.css'
 const App = () => {
   const [userCart, setUserCart] = useState<CartItem[]>([]);
 
-  const removeItemFromCart = (item: CartItem) => {
-    const newCart = userCart.filter(cartItem => cartItem.id !== item.id);
-    setUserCart(newCart);
-  }
-
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={
           <CartContext.Provider value={ userCart }>
             <CartActionsContext.Provider value={ setUserCart }>
-              <Layout storeName={`Justin's Store`} cart={ userCart } handleRemoveItemFromCart={ removeItemFromCart } />
+              <Layout storeName={`Justin's Store`} cart={ userCart } />
             </CartActionsContext.Provider>
           </CartContext.Provider>
         }>

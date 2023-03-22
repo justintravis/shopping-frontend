@@ -2,17 +2,18 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Link, Outlet } from 'react-router-dom';
 import { useLocation  } from 'react-router-dom';
 import { CartItem } from '../models/store-models';
+import { useCart } from '../hooks/useCart';
 
 import './CartDropdown.css'
 
 interface Props {
   cart: CartItem[];
-  handleRemoveItemFromCart: Function;
 }
 
-const CartDropdown = ({ cart, handleRemoveItemFromCart }: Props) => {
+const CartDropdown = ({ cart }: Props) => {
   const [dropdownVisible, setDropdownVisible] = useState<boolean>(false);
   const location = useLocation();
+  const { removeItemFromCart } = useCart();
 
   useEffect(() => {
     setDropdownVisible(false);
@@ -31,7 +32,7 @@ const CartDropdown = ({ cart, handleRemoveItemFromCart }: Props) => {
           <span>({ item.quantity })</span>
           <span><strong>{ item.name }</strong></span>
           <span>${ item.totalPrice }</span>
-          <button className='CartDropdown-removeItem' onClick={ () => handleRemoveItemFromCart(item) }>&times;</button>
+          <button className='CartDropdown-removeItem' onClick={ () => removeItemFromCart(item) }>&times;</button>
         </li>
       )
     })

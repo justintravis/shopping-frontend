@@ -7,16 +7,15 @@ import './Layout.css'
 interface Props {
   storeName: string;
   cart: CartItem[];
-  handleRemoveItemFromCart: Function;
 }
 
-const Layout = ({ storeName, cart, handleRemoveItemFromCart }: Props) => {
+const Layout = ({ storeName, cart }: Props) => {
   return (
     <>
       <header>
         <ul>
           <Link to="/">{ storeName }</Link>
-          <CartDropdown cart={ cart } handleRemoveItemFromCart={ handleRemoveItemFromCart } />
+          <CartDropdown cart={ cart } />
         </ul>
       </header>
       <Outlet />
