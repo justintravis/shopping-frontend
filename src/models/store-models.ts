@@ -1,3 +1,5 @@
+import { DispatchWithoutAction } from "react";
+
 export interface StoreModel {
   storeName: string;
   themeColor: string;
@@ -26,4 +28,18 @@ export interface Item {
 
 export interface Items {
   items: Item[];
+}
+
+export interface CartActionProps {
+  type: 'ADD_TO_CART' | 'REMOVE_FROM_CART';
+  item: CartItem;
+}
+
+export interface CartDispatchProps {
+  dispatch: () => void;
+}
+
+export interface CartProps {
+  cart: CartItem[];
+  action: CartActionProps;
 }

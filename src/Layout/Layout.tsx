@@ -6,16 +6,15 @@ import './Layout.css'
 
 interface Props {
   storeName: string;
-  cart: CartItem[];
 }
 
-const Layout = ({ storeName, cart }: Props) => {
+const Layout = ({ storeName }: Props) => {
   return (
     <>
       <header>
         <ul>
           <Link to="/">{ storeName }</Link>
-          <CartDropdown cart={ cart } />
+          <CartDropdown />
         </ul>
       </header>
       <Outlet />

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useContext, Suspense, lazy } from 'react'
 import { CartContext } from '../CartContext';
 import { Item, CartItem } from '../models/store-models';
+import { useCart } from '../hooks/useCart';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 
 import './ItemPDP.css';
@@ -24,10 +25,11 @@ const ItemPDP = ({ item }: Props) => {
   const { id, name, price, qtyAvailable, images } = item;
   const ImageCarousel = lazy(() => import('../ImageCarousel/ImageCarousel.js'));
 
-  const cart: CartItem[] = useContext(CartContext); // Use context to display how many items are already in user's cart
+  // const cart: CartItem[] = useContext(CartContext); // Use context to display how many items are already in user's cart
+  const { state } = useContext(CartContext);
 
   const getQtyInCart = () : number | undefined => {
-    return cart.find(i => Number(i.id) === id)?.quantity;
+    return state.find(i => Number(i.id) === id)?.quantity;
   }
 
   const qtyInCart = getQtyInCart();
