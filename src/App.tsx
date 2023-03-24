@@ -1,6 +1,4 @@
-import React, { useState, useRef, useContext } from 'react'
-import { Routes, Route, Outlet, Link } from "react-router-dom";
-import { CartItem, Item } from './models/store-models';
+import { Routes, Route } from "react-router-dom";
 import Layout from './Layout/Layout';
 import ShoppingContainer from './ShoppingContainer';
 import ItemPage from './ItemPage/ItemPage';

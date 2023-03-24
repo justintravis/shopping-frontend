@@ -1,17 +1,9 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { CartItem } from "./models/store-models";
+import { CartActions, CartItem } from "./models/store-models";
 import { cartReducer } from "./reducers/cartReducer";
 
-interface CartContextProps {
-  cart: CartItem[];
-}
-
-interface CartActionsContextProps {
-  dispatch: React.Dispatch<any>;
-}
-
-const CartContext = createContext<CartContextProps | null>(null);
-const CartActionsContext = createContext<CartActionsContextProps | null>(null);
+const CartContext = createContext<CartItem[] | null>(null);
+const CartActionsContext = createContext<React.Dispatch<any> | null>(null);
 
 export const useCart = () => {
   const currentCartContext = useContext(CartContext);
