@@ -4,23 +4,18 @@ import { CartItem, Item } from './models/store-models';
 import Layout from './Layout/Layout';
 import ShoppingContainer from './ShoppingContainer';
 import ItemPage from './ItemPage/ItemPage';
-import  { CartContext } from './CartContext';
-import { CartActionsContext } from './CartActionsContext';
+import  { CartProvider } from './CartContext';
 
 import './App.css'
 
 const App = () => {
-  const [userCart, setUserCart] = useState<CartItem[]>([]);
-
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={
-          <CartContext.Provider value={ userCart }>
-            <CartActionsContext.Provider value={ setUserCart }>
-              <Layout storeName={`Justin's Store`} cart={ userCart } />
-            </CartActionsContext.Provider>
-          </CartContext.Provider>
+          <CartProvider>
+            <Layout storeName={`Justin's Store`} />
+          </CartProvider>
         }>
           <Route index element={
             <ShoppingContainer storeName={`Justin's Store`} themeColor='#fefefe' locale='en-GB' />

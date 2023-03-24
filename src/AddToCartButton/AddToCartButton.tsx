@@ -1,16 +1,15 @@
-import React, { useState, useRef, useContext } from 'react'
-import { CartItem, Item } from '../models/store-models';
-import { useCart } from '../hooks/useCart';
+import { CartActions, CartItem, Item } from '../models/store-models';
+import { useCartDispatch } from '../CartContext';
 
 interface Props {
   item: Item
 }
 
 const AddToCartButton = ({ item }: Props) => {
-  const { addItemToCart } = useCart();
+  const dispatch = useCartDispatch();
 
   return (
-    <button onClick={ () => addItemToCart({ item }) }>Add to Cart</button>
+    <button onClick={ () => dispatch({ type: CartActions.Add, item }) }>Add to Cart</button>
   )
 }
 
