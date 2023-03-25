@@ -1,7 +1,7 @@
-import { CartItem, CartActions } from '../models/store-models';
+import { CartItem, Item, CartActions } from '../models/store-models';
 
-interface ActionProps {
-  item: CartItem,
+export interface ActionProps {
+  item: Item,
   type: CartActions.Add | CartActions.Remove
 }
 
