@@ -16,7 +16,7 @@ const App = () => {
           </CartProvider>
         }>
           <Route index element={
-            <ShoppingContainer storeName={`Justin's Store`} themeColor='#fefefe' locale='en-GB' />
+            <ShoppingContainer />
           } />
           <Route path="/item/:id" element={<ItemPage />} />
         </Route>
