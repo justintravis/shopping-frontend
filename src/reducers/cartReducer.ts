@@ -1,9 +1,13 @@
 import { CartItem, Item, CartActions } from '../models/store-models';
 
+export const CART_LS_KEY = 'cart';
+
 export interface ActionProps {
   item: Item,
   type: CartActions.Add | CartActions.Remove
 }
+
+export const initializer = () => JSON.parse(localStorage.getItem(CART_LS_KEY) || '') || [];
 
 export const cartReducer = (cart: CartItem[], action: ActionProps) => {
   const { item } = action;
