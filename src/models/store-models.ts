@@ -2,14 +2,6 @@ export interface ItemImage {
   url: string
 }
 
-export interface CartItem {
-  id: number;
-  name: string;
-  quantity: number;
-  price: number;
-  totalPrice: number;
-}
-
 export interface Item {
   id: number;
   name: string;
@@ -25,4 +17,12 @@ export interface Items {
 export enum CartActions {
   Add = 'ADD_TO_CART',
   Remove = 'REMOVE_FROM_CART'
+}
+
+export interface CartItem {
+  id: number;
+  name: string;
+  quantity: number;
+  price: number;
+  totalPrice: number;
 }
